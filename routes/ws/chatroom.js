@@ -7,6 +7,16 @@ expressWs(router)
 //所有的连接信息
 const roomUser = []
 const msgList = []
+const onlineuser = []
+
+setInterval(()=>{
+    for(let i in roomUser){
+        try{
+            roomUser[i].send(new sendRes({msg:'在线人员',data:onlineuser,type:'userList'}).toString())
+        }catch(e){
+        }
+    }       
+},5000)
 
 router.ws('/chatroom' , (ws,req)=>{
     //储存id
@@ -14,11 +24,13 @@ router.ws('/chatroom' , (ws,req)=>{
     console.log(req.query.user);
     ws.userid = req.query.user
     roomUser.push(ws)
+    
     if(req.query.user == 'null'){
         log('空的')
         //ws.close()
         ws.send(new sendRes({code:444,type:'error',msg:''}.toString()))
     } else {
+        onlineuser.push(req.query.user)
         ws.send(new sendRes({type:'chatroomListmsg',data:msgList,msg:new Date().toString()}).toString())
 
     }
@@ -46,6 +58,7 @@ router.ws('/chatroom' , (ws,req)=>{
     })
     ws.on('close',()=>{
         roomUser.splice(roomUser.indexOf(ws) , 1)
+        onlineuser.splice(roomUser.indexOf(ws) , 1)
     })
 })
 
