@@ -1,12 +1,14 @@
-##### chat-node
+#### chat-node
 
-nodejs + express + express-ws
+##### nodejs + express + express-ws
 
-基于nodejs+ws的聊天系统练习demo，功能完善中。
+##### 基于nodejs+ws的聊天系统练习demo，功能完善中。
 
-写了个前端配合使用 [OWOfadeAway/chat-web (github.com)](https://github.com/OWOfadeAway/chat-web)
+##### 写了个前端配合使用 [chat-web👈](https://github.com/OWOfadeAway/chat-web)
 
-聊天室：
+##### 在线预览地址 ：[点击这里👈](http://chatweb.196545.xyz/#/)
+
+ 聊天室：
 
 ​	基础群聊
 
@@ -18,4 +20,4 @@ nodejs + express + express-ws
 
 ​	开发中   ...
 
-如果对你有用 请给个 ⭐吧
+###### 如果对你有用 请给个 ⭐ 吧
